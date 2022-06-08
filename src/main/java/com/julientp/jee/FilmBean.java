@@ -2,7 +2,6 @@ package com.julientp.jee;
 
 import javax.ejb.*;
 import javax.inject.Inject;
-import java.util.ArrayList;
 import java.util.List;
 
 @Stateless
