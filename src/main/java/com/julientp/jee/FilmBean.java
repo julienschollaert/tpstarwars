@@ -20,11 +20,13 @@ public class FilmBean {
         return filmsDao.addFilms(films);
     }
 
-    /*public boolean updateFilm(){
-        return filmsDao.
-    }*/
+    /*
+     * public boolean updateFilm(){
+     * return filmsDao.updateFilms();
+     * }
+     */
 
-    public boolean deleteFilms(Integer id){
+    public boolean deleteFilms(Integer id) {
         return filmsDao.deleteFilms(id);
     }
 }

@@ -19,43 +19,51 @@ public class FilmResource {
     @Produces(MediaType.APPLICATION_JSON)
     @Path("/list")
     public Response listFilm() {
-        //  return Response.ok(request.getAll()).build();
+        // return Response.ok(request.getAll()).build();
         return Response.ok(fBean.getFilm()).build();
     }
 
     @POST
     @Path("/insert")
-    public Response insertFilm(film films)
-    {
+    public Response insertFilm(film films) {
         fBean.addFilms(films);
         return Response.ok("Success 200").build();
     }
 
     /*
-    @PUT
-    @Path("/update/{id}")
-    public Response updateFilm()
-    {
+     * if (test)
+     * return Response.ok("Success 200").build();
+     * else
+     * return Response.status(405, "error").build();
+     */
 
-    }
-*/
+    /*
+     * @PUT
+     * 
+     * @Path("/update/{id}")
+     * public Response updateFilm()
+     * {
+     * 
+     * }
+     */
     @DELETE
     @Path("/delete/{id}")
-    public Response deleteFilm(@PathParam("id") Integer id)
-    {
+    public Response deleteFilm(@PathParam("id") Integer id) {
         fBean.deleteFilms(id);
         return Response.ok("success delete").build();
     }
-/*
-    @DELETE
-    @Path("{name}")
-    public Response deleteCrewMember(@PathParam("name") String name) {
-        crewMembers.removeIf(crewMember -> crewMember.getName().equalsIgnoreCase(name));
-        return Response.ok(crewMembers.size()).build();
-    }
-
-
-
-    */
+    /*
+     * @DELETE
+     * 
+     * @Path("{name}")
+     * public Response deleteCrewMember(@PathParam("name") String name) {
+     * crewMembers.removeIf(crewMember ->
+     * crewMember.getName().equalsIgnoreCase(name));
+     * return Response.ok(crewMembers.size()).build();
+     * }
+     * 
+     * 
+     * 
+     */
 
 }
