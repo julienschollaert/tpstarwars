@@ -20,8 +20,8 @@ public class FilmBean {
         return filmsDao.addFilms(films);
     }
 
-    public boolean updateFilm(film films) {
-        return filmsDao.updateFilms(films);
+    public boolean updateFilm(Integer id, film films) {
+        return filmsDao.updateFilms(id, films);
     }
 
     public boolean deleteFilms(Integer id) {

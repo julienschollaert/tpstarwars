@@ -58,12 +58,24 @@ public class filmDao {
         }
     }
 
-    public boolean updateFilms(film films) {
+    public boolean updateFilms(Integer id, film films) {
         try {
-            userTransaction.begin();
-            entityManager.merge(films);
-            userTransaction.commit();
-            return true;
+            film filmVerif = FilmWithId(id);
+            if (filmVerif == null) {
+                return false;
+            } else {
+                if (films.getLibelle() != null) {
+                    filmVerif.setLibelle(films.getLibelle());
+                }
+                if (films.getDescription() != null) {
+                    filmVerif.setDescription(films.getDescription());
+                }
+
+                userTransaction.begin();
+                entityManager.merge(filmVerif);
+                userTransaction.commit();
+                return true;
+            }
         } catch (Exception e) {
             Logger.getGlobal().log(Level.SEVERE, "JPA error" + e.getMessage());
             return false;

@@ -19,7 +19,6 @@ public class FilmResource {
     @Produces(MediaType.APPLICATION_JSON)
     @Path("/list")
     public Response listFilm() {
-        // return Response.ok(request.getAll()).build();
         return Response.ok(fBean.getFilm()).build();
     }
 
@@ -31,10 +30,9 @@ public class FilmResource {
     }
 
     @PUT
-
-    @Path("/update")
-    public Response updateFilm(film films) {
-        fBean.updateFilm(films);
+    @Path("/update/{id}")
+    public Response updateFilm(@PathParam("id") Integer id, film films) {
+        fBean.updateFilm(id, films);
         return Response.ok("Success 200").build();
 
     }
@@ -45,18 +43,4 @@ public class FilmResource {
         fBean.deleteFilms(id);
         return Response.ok("success delete").build();
     }
-    /*
-     * @DELETE
-     * 
-     * @Path("{name}")
-     * public Response deleteCrewMember(@PathParam("name") String name) {
-     * crewMembers.removeIf(crewMember ->
-     * crewMember.getName().equalsIgnoreCase(name));
-     * return Response.ok(crewMembers.size()).build();
-     * }
-     * 
-     * 
-     * 
-     */
-
 }
