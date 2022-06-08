@@ -30,22 +30,15 @@ public class FilmResource {
         return Response.ok("Success 200").build();
     }
 
-    /*
-     * if (test)
-     * return Response.ok("Success 200").build();
-     * else
-     * return Response.status(405, "error").build();
-     */
+    @PUT
 
-    /*
-     * @PUT
-     * 
-     * @Path("/update/{id}")
-     * public Response updateFilm()
-     * {
-     * 
-     * }
-     */
+    @Path("/update")
+    public Response updateFilm(film films) {
+        fBean.updateFilm(films);
+        return Response.ok("Success 200").build();
+
+    }
+
     @DELETE
     @Path("/delete/{id}")
     public Response deleteFilm(@PathParam("id") Integer id) {
