@@ -24,6 +24,9 @@ public class UtilisateurBean {
         return utilisateursDao.addUtilisateur(utilisateurs);
     }
 
+    public boolean updateFilm(Integer id, Utilisateur utilisateurs) {
+        return utilisateursDao.createToken(id, utilisateurs);
+    }
 
 
 
